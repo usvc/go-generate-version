@@ -67,8 +67,10 @@ var versionTemplate = template.Must(template.New("test").Parse(`
 
 package main
 
+// Version stores the latest git tag
 const Version = "{{.AppVersion}}"
 
+// Commit stores the commit SHA hash
 const Commit = "{{.AppCommit}}"
 
 `))
