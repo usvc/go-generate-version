@@ -54,6 +54,9 @@ func getRepoVersion() (Version, Commit) {
 	getCommit.Run()
 
 	version := strings.Trim(versionOutput.String(), " \n")
+	if strings.Contains(version, "fatal") {
+		version = "0.0.0-unset"
+	}
 	commit := strings.Trim(commitOutput.String(), " -'\n")[:7]
 	return Version(version), Commit(commit)
 }
